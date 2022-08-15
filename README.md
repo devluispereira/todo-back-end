@@ -64,3 +64,11 @@ Use o comando
 Após criar a imagem, use o comando:
 
     docker run -d -p 5000:5000 app-ada-be:1.0
+
+## Localmente
+
+Use os comandos
+
+    npm install
+    npx sequelize db:migrate
+    npm start
