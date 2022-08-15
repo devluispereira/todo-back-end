@@ -1,5 +1,5 @@
 import { logger } from '../lib/logger'
-import * as cardsDomain from '../domain/cards'
+import * as cardsDomain from '../services/cards'
 import { authMiddleware } from '../lib/auth-middleware'
 import { toAsyncHandle } from '../lib/to-async-handle'
 

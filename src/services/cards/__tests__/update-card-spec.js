@@ -62,6 +62,7 @@ describe('update-card.js', () => {
     describe('and the card is update with success', () => {
       beforeEach(() => {
         jest.spyOn(repositoryStub.card, 'findById').mockReturnValue({ id: 10, titulo: 'teste' })
+        jest.spyOn(repositoryStub.card, 'updateCard').mockReturnValue({ id: 10, ...card })
       })
       afterEach(() => {
         jest.clearAllMocks()
@@ -72,6 +73,12 @@ describe('update-card.js', () => {
 
         expect(repositoryStub.card.findById).toHaveBeenCalledWith({ id: 10 })
         expect(repositoryStub.card.updateCard).toHaveBeenCalledWith({ id: 10, ...card })
+      })
+
+      it('should return card update', async () => {
+        const response = await updateCard({ id: 10, ...card }, repositoryStub)
+
+        expect(response).toMatchObject({ id: 10, ...card })
       })
     })
   })

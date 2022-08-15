@@ -1,13 +1,14 @@
+import moment from 'moment'
+
 const METHODS_LOGGER = ['PUT', 'PATCH', 'DELETE']
 
 export const logger = (req, _, next) => {
   if (METHODS_LOGGER.includes(req.method)) {
-    const now = new Date()
     const { id } = req.params
 
-    const { title } = req.body
+    const { titulo } = req.body
 
-    console.log(`Logger: ${now.toLocaleString()} - Card ${id} - ${title} - Method: ${req.method} `)
+    console.log(`Logger: ${moment().format('d/MM/YY - HH:mm:ss')} - Card ${id} - ${titulo} - Method: ${req.method} `)
   }
   next()
 }

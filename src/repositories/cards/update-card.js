@@ -5,5 +5,14 @@ export const updateCard = async ({
   titulo,
   conteudo,
   lista
-} = {}) => await Cards.update({ titulo, conteudo, lista }, { where: { id } })
+} = {}) => {
+  await Cards.update({ titulo, conteudo, lista }, { where: { id }, returning: true })
+
+  return {
+    id,
+    titulo,
+    conteudo,
+    lista
+  }
+}
 

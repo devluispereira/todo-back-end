@@ -5,7 +5,7 @@ import * as userDomain from '../user'
 export const createSection = async (
   {
     login,
-    password
+    senha
   },
   repositories
 ) => {
@@ -15,7 +15,7 @@ export const createSection = async (
     return null
   }
 
-  const isCorretPassword = await userDomain.checkPassword(password, user.password)
+  const isCorretPassword = await userDomain.checkPassword(senha, user.password)
 
   if (!isCorretPassword) {
     return null
@@ -28,10 +28,6 @@ export const createSection = async (
   })
 
   return {
-    user: {
-      id,
-      login
-    },
     token
   }
 }
